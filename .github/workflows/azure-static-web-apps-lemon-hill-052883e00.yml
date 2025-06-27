@@ -32,8 +32,8 @@ jobs:
         id: idtoken
         with:
           script: |
-            const core = require('@actions/core')
-            return await core.getIDToken()
+            const corelib = require('@actions/core')
+            return await corelib.getIDToken()
           result-encoding: string
 
       - name: Build And Deploy
@@ -45,7 +45,7 @@ jobs:
           app_location: "/"           # Folder berisi index.html
           api_location: ""            # Tidak ada API
           output_location: "."        # Output langsung dari root
-          app_build_command: ""       # Tidak perlu build
+          app_build_command: ""       # Kosongkan agar tidak jalankan build
           github_id_token: ${{ steps.idtoken.outputs.result }}
 
   close_pull_request_job:

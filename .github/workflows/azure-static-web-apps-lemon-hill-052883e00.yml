@@ -45,7 +45,8 @@ jobs:
           app_location: "/"           # Folder berisi index.html
           api_location: ""            # Tidak ada API
           output_location: "."        # Output langsung dari root
-          app_build_command: ""       # Kosongkan agar tidak jalankan build
+          app_build_command: ""       # Tidak perlu build
+          skip_app_build: true        # <=== FIX ini yang penting
           github_id_token: ${{ steps.idtoken.outputs.result }}
 
   close_pull_request_job:

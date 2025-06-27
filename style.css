@@ -12,6 +12,10 @@ body {
     line-height: 1.6;
 }
 
+.body-no-scroll {
+    overflow: hidden;
+}
+
 .container {
     max-width: 1280px;
     margin: 0 auto;
@@ -51,7 +55,7 @@ header.scrolled {
 }
 
 main {
-    padding-top: 88px; /* Jarak agar konten tidak tertutup header. Sesuaikan jika perlu */
+    padding-top: 88px; 
 }
 
 .nav-bar {
@@ -61,6 +65,7 @@ main {
 }
 
 .nav-left, .nav-right { flex: 1; }
+.nav-right { display: flex; justify-content: flex-end; }
 .nav-center { flex: 2; display: flex; justify-content: center; }
 .logo img { 
     width: 130px; 
@@ -73,11 +78,58 @@ header.scrolled .logo img {
 .nav-links { list-style: none; display: flex; gap: 50px; }
 .nav-links a { text-transform: uppercase; font-size: 0.9rem; font-weight: bold; }
 
-/* CSS untuk #side-nav sudah dihapus */
+/* Mobile Menu: Hamburger & Popup */
+#hamburger-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
 
-/* Animations */
-.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
-.fade-in.show { opacity: 1; transform: translateY(0); }
+#hamburger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 3px;
+}
+
+#mobile-menu-popup {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 18, 18, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobile-menu-popup.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-nav-links { list-style: none; padding: 0; text-align: center; }
+.popup-nav-links li { margin: 30px 0; }
+.popup-nav-links a { color: #ffffff; font-size: 2rem; font-weight: 600; }
+
+#close-icon {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 3rem;
+    color: #ffffff;
+    cursor: pointer;
+    line-height: 1;
+}
 
 /* Hero Section */
 .hero {
@@ -89,43 +141,23 @@ header.scrolled .logo img {
     align-items: center;
     justify-content: flex-start;
 }
-.hero-content {
-    max-width: 50%;
-    padding-left: 8%;
-}
+.hero-content { max-width: 50%; padding-left: 8%; }
 .hero-content p { font-size: 1.2rem; }
 .hero-content h1 { font-size: 3.5rem; line-height: 1.2; margin-top: 10px; }
 
-/* Sections General */
-.collection, .categories {
-    padding: 99px 0;
-    text-align: center;
-}
+/* Sections General & Specifics */
+.collection, .categories { padding: 80px 0; text-align: center; }
 .categories { background-color: #383838; }
 h2 { font-size: 2rem; margin-bottom: 50px; text-transform: capitalize; }
 
-/* Collection Section */
 .collection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 33px; }
 .collection-item { text-align: left; }
 .collection-item img { width: 100%; height: auto; object-fit: cover; margin-bottom: 20px; }
 .collection-item h4 { font-size: 1rem; color: white; margin-bottom: 10px; }
 .collection-item .deskripsi { font-size: 0.9rem; color: #bbbbbb; line-height: 1.6; }
 
-/* Categories Section */
 .categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.category-item {
-    position: relative;
-    height: 350px;
-    display: flex;
-    padding: 20px;
-    background-size: cover;
-    background-position: center;
-    cursor: pointer;
-    overflow: hidden;
-    align-items: flex-end;
-    justify-content: flex-start;
-    transition: transform 0.4s ease-out;
-}
+.category-item { position: relative; height: 350px; display: flex; padding: 20px; background-size: cover; background-position: center; cursor: pointer; overflow: hidden; align-items: flex-end; justify-content: flex-start; transition: transform 0.4s ease-out; }
 .category-item:hover { transform: scale(1.05); }
 .category-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
 .category-overlay { position: relative; z-index: 2; text-align: left; }
@@ -136,7 +168,10 @@ h2 { font-size: 2rem; margin-bottom: 50px; text-transform: capitalize; }
 #cat3 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.3.png'); }
 #cat4 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.4.png'); }
 
-/* Scroll Animations */
+/* Animations */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
+.fade-in.show { opacity: 1; transform: translateY(0); }
+
 .animated-item { opacity: 0; transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
 .animated-item.slide-from-left { transform: translateX(-100px); }
 .animated-item.slide-from-bottom { transform: translateY(100px); }
@@ -156,13 +191,14 @@ footer { background-color: #2F2F2F; padding-top: 65px; border-top: 1px solid #22
 
 /* Responsive Media Query */
 @media (max-width: 768px) {
-    main { padding-top: 70px; } 
-    .nav-bar { justify-content: center; }
-    .nav-center, .nav-right { display: none; }
+    main { padding-top: 70px; }
+    .nav-bar { justify-content: space-between; } /* Ubah agar logo kiri, ikon kanan */
+    .nav-center { display: none; }
     .nav-left { flex: none; }
-    header.scrolled, header { padding: 5px 0; }
+    .logo img { margin-left: 0; }
+    #hamburger-icon { display: flex; } /* Tampilkan ikon hamburger */
+    header.scrolled, header { padding: 10px 0; }
     header.scrolled .logo img, .logo img { width: 100px; }
-    /* Baris #side-nav sudah dihapus */
     .hero { height: 60vh; justify-content: center; }
     .hero-content { max-width: 90%; padding-left: 0; text-align: center; }
     .hero-content h1 { font-size: 2.2rem; }

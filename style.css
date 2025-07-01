@@ -1,3 +1,5 @@
+/* style.css */
+
 /* General Styling & Reset */
 * {
     margin: 0;
@@ -88,6 +90,25 @@ header.scrolled .logo img {
     cursor: pointer;
 }
 
+.social-icons {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.social-icons a img {
+    width: 35px;
+    height: 35px;
+    filter: brightness(100);
+    transition: opacity 0.3s ease;
+}
+
+.social-icons a:hover img {
+    opacity: 0.7;
+}
+
+
 #hamburger-icon span {
     display: block;
     width: 100%;
@@ -131,7 +152,7 @@ header.scrolled .logo img {
     line-height: 1;
 }
 
-/* Hero Section */
+/* Hero Section (Homepage) */
 .hero {
     height: 80vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/AWAL.png');
@@ -163,6 +184,7 @@ h2 { font-size: 2rem; margin-bottom: 50px; text-transform: capitalize; }
 .category-overlay { position: relative; z-index: 2; text-align: left; }
 .category-overlay h3 { font-size: 1.2rem; text-transform: uppercase; font-weight: bold; }
 
+/* Categories for Homepage (index.html) */
 #cat1 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.1.png'); }
 #cat2 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.2.png'); }
 #cat3 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.3.png'); }
@@ -192,11 +214,11 @@ footer { background-color: #2F2F2F; padding-top: 65px; border-top: 1px solid #22
 /* Responsive Media Query */
 @media (max-width: 768px) {
     main { padding-top: 70px; }
-    .nav-bar { justify-content: space-between; } /* Ubah agar logo kiri, ikon kanan */
+    .nav-bar { justify-content: space-between; }
     .nav-center { display: none; }
     .nav-left { flex: none; }
     .logo img { margin-left: 0; }
-    #hamburger-icon { display: flex; } /* Tampilkan ikon hamburger */
+    #hamburger-icon { display: flex; }
     header.scrolled, header { padding: 10px 0; }
     header.scrolled .logo img, .logo img { width: 100px; }
     .hero { height: 60vh; justify-content: center; }
@@ -205,4 +227,437 @@ footer { background-color: #2F2F2F; padding-top: 65px; border-top: 1px solid #22
     h2 { font-size: 1.8rem; }
     .collection-grid, .categories-grid, .footer-container { grid-template-columns: 1fr; }
     .animated-item.slide-from-left, .animated-item.slide-from-right { transform: translateY(50px); }
+}
+
+/* blog.css - VERSI FINAL SESUAI GAMBAR ACUAN TERAKHIR */
+
+/* Style Khusus untuk Hero Section di Halaman Blog */
+
+/* Mengganti gambar latar belakang */
+.blog-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('awal.png');
+}
+
+/* Mengganti font untuk judul h1 */
+.blog-hero .hero-content h1 {
+}
+
+/* Contoh jika ingin mengganti font paragraf juga */
+.blog-hero .hero-content p {
+}
+
+.contact-introo {
+    background-color: #383838;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center; /* tengahin container */
+}
+
+.intro-wrapperr {
+    max-width: 850px;
+    text-align: left;        /* tulisan tetap rata kiri */
+}
+
+
+main {
+    padding: 0;
+    margin: 0;
+    background-color: #1a1a1a;
+}
+
+/* Section Tampilan Foto Utama */
+
+.featured-looks-section {
+    padding: 100px 0;
+    background-color: black;
+}
+
+.looks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    align-items: start;
+}
+
+.look-item {
+    text-align: center;
+}
+
+.look-item img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.look-item p {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    line-height: 1.7;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.look-item .image-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.look-item .badge {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #e53935;
+    color: white;
+    padding: 8px 25px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+
+/* ===== SECTION BIKERS STORY (SESUAI GAMBAR ACUAN) ===== */
+
+.bikers-story-section {
+    padding: 80px 0;
+    background-color: #383838; /* Background kembali gelap */
+}
+
+.bikers-story-section h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 50px;
+    font-weight: 600;
+    color: #ffffff; /* Warna judul kembali putih */
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    align-items: start; /* INI KUNCINYA: Meratakan item ke ATAS, bukan meregangkannya */
+}
+
+.story-item {
+    /* KOSONGKAN: Tidak perlu background, flex, atau apapun. */
+    /* Biarkan transparan agar menyatu dengan section. */
+}
+
+/* Pembungkus gambar */
+.story-image-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+    height: 300px; /* <-- KITA TENTUKAN TINGGI YANG SAMA UNTUK SEMUA GAMBAR */
+    border-radius: 4px; /* Pindahkan lengkungan ke pembungkus */
+    overflow: hidden; /* Sembunyikan bagian gambar yang melebihi bingkai */
+}
+
+/* Gambar di dalam pembungkus */
+.story-image-wrapper img {
+    width: 100%;
+    height: 100%; /* Buat gambar mengisi penuh tinggi & lebar bingkainya */
+    object-fit: cover; /* INI KUNCINYA: Mencegah gambar gepeng, gambar akan di-zoom & di-crop agar pas */
+    display: block;
+}
+
+.story-author {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    border-radius: 3px;
+}
+
+.story-content {
+    padding: 0 5px; /* Sedikit padding kiri-kanan untuk kerapian */
+}
+
+.story-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.story-content p {
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+}
+
+
+/* Media Queries untuk Responsive */
+@media (max-width: 992px) {
+    .story-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* collection.css - Style khusus untuk halaman koleksi */
+
+/* Section Galeri Produk */
+.product-gallery-section {
+    padding: 80px 0;
+    background-color: #1a1a1a; /* Warna latar abu-abu gelap */
+}
+
+/* Judul Section (contoh: "All Products") */
+.product-gallery-section .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    text-transform: capitalize;
+    color: #ffffff;
+}
+
+/* Grid untuk produk */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom */
+    gap: 30px; /* Jarak antar produk */
+}
+
+/* Setiap item produk */
+.product-item {
+    text-align: left;
+}
+
+/* Kontainer gambar yang berwarna putih */
+.product-image-container {
+    background-color: #ffffff; /* Latar belakang putih untuk gambar */
+    padding: 20px;
+    margin-bottom: 15px; /* Jarak dari kotak putih ke link "Shop now" */
+}
+
+.product-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Memastikan gambar proporsional */
+}
+
+/* Link "Shop now" */
+.shop-now-link {
+    display: inline-block;
+    color: #c0c0c0;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.shop-now-link:hover {
+    color: #ffffff;
+}
+
+
+/* Responsive untuk tablet dan mobile */
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr); /* Jadi 2 kolom */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom */
+    }
+}
+
+/* about.css - VERSI FINAL SESUAI GAMBAR */
+
+/* Hero Section Halaman About */
+.about-hero {
+    height: 70vh;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 100%), url('https://dioassets.blob.core.windows.net/dihongasset/About/awal.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+/* Penyesuaian agar "Our Story" lebih ke kiri seperti di gambar */
+.hero-text-container {
+    padding: 0 20px; /* Gunakan padding container yang sudah ada */
+}
+
+.about-hero h1 {
+    color: #ffffff;
+    font-size: 3.5rem;
+}
+
+/* Paragraf Pembuka */
+.about-intro {
+    padding: 80px 20px;
+    background-color: #121212;
+}
+
+.intro-text-wrapper {
+    max-width: 750px; /* Lebar maksimum untuk blok teks */
+    margin: 0 auto; /* Membuat blok teks berada di tengah */
+}
+
+.about-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #c0c0c0;
+}
+
+/* Jarak antar paragraf pembuka */
+.about-intro p:first-of-type {
+    margin-bottom: 25px; 
+}
+
+/* Section Misi (Dua Kolom) */
+.about-mission {
+    padding: 100px 0;
+    background-color: #121212; /* Warna latar utama */
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 4fr 5fr; /* Kolom gambar sedikit lebih kecil dari kolom teks */
+    gap: 70px; /* Jarak antara gambar dan teks */
+    align-items: center;
+}
+
+.mission-image img {
+    width: 100%;
+    border-radius: 4px; /* Sudut sedikit melengkung */
+}
+
+.mission-text h4 {
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.mission-text h2 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    line-height: 1.3;
+}
+
+.mission-text p {
+    color: #b0b0b0;
+    line-height: 1.7;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+    .mission-grid {
+        grid-template-columns: 1fr; /* Jadi satu kolom */
+    }
+
+    .about-hero {
+        background-position: 70% center; /* Geser gambar agar subjek tetap terlihat di mobile */
+    }
+    
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .mission-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .about-mission, .about-intro {
+        padding: 60px 0;
+    }
+}
+
+/* contact.css - VERSI FINAL DENGAN HERO SECTION */
+
+/* Style untuk Hero Section di Halaman Kontak */
+.contact-hero {
+    height: 60vh; /* Tinggi hero, bisa disesuaikan */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/About/aw.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Memastikan teks di tengah hero */
+.contact-hero .hero-content {
+    width: 100%;
+    text-align: center;
+    padding-left: 0; /* Menimpa style padding dari .hero-content utama */
+}
+
+.contact-hero .hero-content h1 {
+    font-size: 3.5rem;
+}
+
+
+/* Section Teks Pembuka */
+.contact-intro {
+    background-color: #383838;
+    padding: 80px 20px;
+}
+
+.intro-wrapper {
+    max-width: 850px; /* Lebar maksimum blok teks */
+    margin: 0 auto; /* Posisi di tengah */
+    text-align: center;
+}
+
+.intro-wrapper p {
+    color: white;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+/* Section Grid Alamat */
+.address-section {
+    padding: 80px 0;
+    background-color: #121212;
+}
+
+.address-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
+    gap: 30px; /* Jarak antar kotak */
+}
+
+.address-card {
+    background-color: #d3d3d3; /* Warna abu-abu terang */
+    min-height: 300px; /* Tinggi minimal setiap kotak */
+    padding: 20px;
+    
+    /* Trik untuk membuat teks di tengah secara vertikal & horizontal */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address-card p {
+    color: #222222; /* Warna teks gelap */
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 600;
+}
+
+/* Responsive untuk mobile */
+@media (max-width: 768px) {
+    .address-grid {
+        grid-template-columns: 1fr; /* Jadi 1 kolom */
+    }
+
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
 }

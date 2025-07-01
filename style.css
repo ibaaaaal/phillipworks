@@ -1,6 +1,6 @@
-/* style.css */
-
-/* General Styling & Reset */
+/* ============================================= */
+/* == STYLE GLOBAL & UMUM ====================== */
+/* ============================================= */
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +12,7 @@ body {
     background-color: #121212;
     color: #ffffff;
     line-height: 1.6;
+    animation: revealContent 0.8s ease-in;
 }
 
 .body-no-scroll {
@@ -39,7 +40,27 @@ img {
     display: block;
 }
 
-/* Header Styling (Fixed & Shrinkable) */
+main {
+    padding-top: 115px;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.3;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 50px;
+    text-transform: capitalize;
+}
+
+section {
+    padding: 80px 0;
+}
+
+/* ============================================= */
+/* == HEADER & NAVIGASI ======================== */
+/* ============================================= */
 header {
     position: fixed;
     top: 0;
@@ -56,38 +77,47 @@ header.scrolled {
     padding: 5px 0;
 }
 
-main {
-    padding-top: 107px; 
-}
-
 .nav-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.nav-left, .nav-right { flex: 1; }
-.nav-right { display: flex; justify-content: flex-end; }
-.nav-center { flex: 2; display: flex; justify-content: center; }
-.logo img { 
-    width: 130px; 
-    height: auto; 
+.nav-left, .nav-right {
+    flex: 1;
+}
+
+.nav-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.logo img {
+    width: 130px;
     transition: width 0.3s ease-in-out;
 }
+
 header.scrolled .logo img {
     width: 100px;
 }
-.nav-links { list-style: none; display: flex; gap: 50px; }
-.nav-links a { text-transform: uppercase; font-size: 0.9rem; font-weight: bold; }
 
-/* Mobile Menu: Hamburger & Popup */
-#hamburger-icon {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+.nav-links a {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: bold;
 }
 
 .social-icons {
@@ -108,6 +138,14 @@ header.scrolled .logo img {
     opacity: 0.7;
 }
 
+#hamburger-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
 
 #hamburger-icon span {
     display: block;
@@ -119,7 +157,8 @@ header.scrolled .logo img {
 
 #mobile-menu-popup {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(18, 18, 18, 0.95);
@@ -138,9 +177,21 @@ header.scrolled .logo img {
     visibility: visible;
 }
 
-.popup-nav-links { list-style: none; padding: 0; text-align: center; }
-.popup-nav-links li { margin: 30px 0; }
-.popup-nav-links a { color: #ffffff; font-size: 2rem; font-weight: 600; }
+.popup-nav-links {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.popup-nav-links li {
+    margin: 30px 0;
+}
+
+.popup-nav-links a {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+}
 
 #close-icon {
     position: absolute;
@@ -152,45 +203,47 @@ header.scrolled .logo img {
     line-height: 1;
 }
 
-/* Hero Section (Homepage) */
-.hero {
-    height: 80vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/AWAL.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+/* ============================================= */
+/* == FOOTER =================================== */
+/* ============================================= */
+footer {
+    background-color: #2F2F2F;
+    padding-top: 65px;
+    border-top: 1px solid #222;
 }
-.hero-content { max-width: 50%; padding-left: 8%; }
-.hero-content p { font-size: 1.2rem; }
-.hero-content h1 { font-size: 3.5rem; line-height: 1.2; margin-top: 10px; }
 
-/* Sections General & Specifics */
-.collection, .categories { padding: 80px 0; text-align: center; }
-.categories { background-color: #383838; }
-h2 { font-size: 2rem; margin-bottom: 50px; text-transform: capitalize; }
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
 
-.collection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 33px; }
-.collection-item { text-align: left; }
-.collection-item img { width: 100%; height: auto; object-fit: cover; margin-bottom: 20px; }
-.collection-item h4 { font-size: 1rem; color: white; margin-bottom: 10px; }
-.collection-item .deskripsi { font-size: 0.9rem; color: #bbbbbb; line-height: 1.6; }
+.footer-column h3 {
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
 
-.categories-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-.category-item { position: relative; height: 350px; display: flex; padding: 20px; background-size: cover; background-position: center; cursor: pointer; overflow: hidden; align-items: flex-end; justify-content: flex-start; transition: transform 0.4s ease-out; }
-.category-item:hover { transform: scale(1.05); }
-.category-item::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); }
-.category-overlay { position: relative; z-index: 2; text-align: left; }
-.category-overlay h3 { font-size: 1.2rem; text-transform: uppercase; font-weight: bold; }
+.footer-column p {
+    color: #999;
+}
 
-/* Categories for Homepage (index.html) */
-#cat1 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.1.png'); }
-#cat2 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.2.png'); }
-#cat3 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.3.png'); }
-#cat4 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.4.png'); }
+.copyright-bar {
+    margin-top: 60px;
+    padding: 20px 0;
+    background-color: #1B1B1B;
+    text-align: center;
+}
 
-/* Animations */
+.copyright-bar p {
+    color: #BCBABA;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* ============================================= */
+/* == ANIMASI & EFEK =========================== */
+/* ============================================= */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
 .fade-in.show { opacity: 1; transform: translateY(0); }
 
@@ -203,72 +256,402 @@ h2 { font-size: 2rem; margin-bottom: 50px; text-transform: capitalize; }
 .animated-item.in-view h4 { opacity: 1; transform: translate(0, 0); }
 .animated-item.in-view .deskripsi { opacity: 1; transform: translate(0, 0); transition-delay: 0.7s; }
 
-/* Footer */
-footer { background-color: #2F2F2F; padding-top: 65px; border-top: 1px solid #222; }
-.footer-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.footer-column h3 { margin-bottom: 20px; text-transform: uppercase; }
-.footer-column p { color: #999; }
-.copyright-bar { margin-top: 60px; padding: 20px 0; background-color: #1B1B1B; text-align: center; }
-.copyright-bar p { color: #BCBABA; font-size: 1rem; letter-spacing: 1px; margin: 0; }
-
-/* Responsive Media Query */
-@media (max-width: 768px) {
-    main { padding-top: 70px; }
-    .nav-bar { justify-content: space-between; }
-    .nav-center { display: none; }
-    .nav-left { flex: none; }
-    .logo img { margin-left: 0; }
-    #hamburger-icon { display: flex; }
-    header.scrolled, header { padding: 10px 0; }
-    header.scrolled .logo img, .logo img { width: 100px; }
-    .hero { height: 60vh; justify-content: center; }
-    .hero-content { max-width: 90%; padding-left: 0; text-align: center; }
-    .hero-content h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.8rem; }
-    .collection-grid, .categories-grid, .footer-container { grid-template-columns: 1fr; }
-    .animated-item.slide-from-left, .animated-item.slide-from-right { transform: translateY(50px); }
+@keyframes revealContent {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
-/* blog.css - VERSI FINAL SESUAI GAMBAR ACUAN TERAKHIR */
 
-/* Style Khusus untuk Hero Section di Halaman Blog */
+@keyframes fadeOutOverlay {
+    to {
+        opacity: 0;
+        visibility: hidden; 
+    }
+}
 
-/* Mengganti gambar latar belakang */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.slide-from-left,
+.slide-from-right,
+.slide-from-bottom {
+  opacity: 0;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.slide-from-left {
+  transform: translateX(-100px);
+}
+
+.slide-from-right {
+  transform: translateX(100px);
+}
+
+.slide-from-bottom {
+  transform: translateY(50px);
+}
+
+.slide-from-left.in-view,
+.slide-from-right.in-view,
+.slide-from-bottom.in-view {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.product-image-container {
+    position: relative;
+}
+
+.product-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.product-item:hover .product-image-container::after {
+    opacity: 1;
+}
+
+.product-item:hover .shop-now-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.animated-item {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.animated-item.in-view {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.product-item:nth-child(2).animated-item { transition-delay: 0.1s; }
+.product-item:nth-child(3).animated-item { transition-delay: 0.2s; }
+.product-item:nth-child(4).animated-item { transition-delay: 0.15s; }
+.product-item:nth-child(5).animated-item { transition-delay: 0.25s; }
+.product-item:nth-child(6).animated-item { transition-delay: 0.35s; }
+
+/* ============================================= */
+/* == HALAMAN HOME ============================= */
+/* ============================================= */
+.hero {
+    height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/AWAL.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.hero-content {
+    max-width: 50%;
+    padding-left: 8%;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-top: 10px;
+}
+
+.collection, .categories {
+    text-align: center;
+}
+
+.categories {
+    background-color: #383838;
+}
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 33px;
+    text-align: left;
+}
+
+.collection-item img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.collection-item h4 {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.collection-item .deskripsi {
+    font-size: 0.9rem;
+    color: #bbbbbb;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category-item {
+    position: relative;
+    height: 350px;
+    display: flex;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    overflow: hidden;
+    align-items: flex-end;
+    justify-content: flex-start;
+    transition: transform 0.4s ease-out;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+}
+
+.category-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+}
+
+.category-overlay {
+    position: relative;
+    z-index: 2;
+    text-align: left;
+}
+
+.category-overlay h3 {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#cat1 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.1.png'); }
+#cat2 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.2.png'); }
+#cat3 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.3.png'); }
+#cat4 { background-image: url('https://dioassets.blob.core.windows.net/dihongasset/KAT.4.png'); }
+
+/* ============================================= */
+/* == HALAMAN ABOUT ============================ */
+/* ============================================= */
+.about-hero {
+    height: 80vh;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 100%), url('https://dioassets.blob.core.windows.net/dihongasset/About/awal.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
+
+.hero-text-container {
+    max-width: 100%;
+    padding-right: 70%;
+    padding-top: 25%;
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+}
+
+.about-intro {
+    background-color: #121212;
+}
+
+.intro-text-wrapper {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.about-intro p {
+    font-size: 1.1rem;
+    color: #c0c0c0;
+}
+
+.about-intro p:first-of-type {
+    margin-bottom: 25px; 
+}
+
+.about-mission {
+    background-color: #121212;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: 4fr 5fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.mission-image img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+.mission-text h4 {
+    color: #a0a0a0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.mission-text h2 {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+}
+
+.mission-text p {
+    color: #b0b0b0;
+}
+
+/* ============================================= */
+/* == HALAMAN COLLECTION ======================= */
+/* ============================================= */
+.collection-hero {
+    height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/awal.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.collection-hero .hero-content {
+    max-width: 100%;
+    padding-right: 60%;
+    padding-top: 25%;
+}
+
+.collection-hero .hero-content h1 {
+    font-size: 3.5rem;
+}
+
+.contact-introoo {
+    background-color: #111111;
+    padding-top: 77px;
+    padding-bottom: 77px;
+}
+
+.intro-wrapperrr {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+    color: #E0E0E0;
+    font-size: 1.1rem;
+}
+
+.intro-wrapperrr p:not(:last-child) {
+    margin-bottom: 2em;
+}
+
+.product-gallery-section {
+    background-color: #383838;
+}
+
+.product-gallery-section .section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+    text-transform: capitalize;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: left;
+}
+
+.product-image-container {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.product-image-container img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.shop-now-link {
+    display: inline-block;
+    color: #c0c0c0;
+    text-decoration: underline;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.shop-now-link:hover {
+    color: #ffffff;
+}
+
+/* ============================================= */
+/* == HALAMAN BLOG ============================= */
+/* ============================================= */
 .blog-hero {
+    height: 92vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/Blog/awal.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
-/* Mengganti font untuk judul h1 */
+.blog-hero .hero-content {
+   max-width: 50%;
+    padding-left: 8%;
+}
+
 .blog-hero .hero-content h1 {
-}
-
-/* Contoh jika ingin mengganti font paragraf juga */
-.blog-hero .hero-content p {
+    font-size: 3.5rem;
+    margin-top: 10px;
 }
 
 .contact-introo {
     background-color: #383838;
-    padding: 80px 20px;
     display: flex;
-    justify-content: center; /* tengahin container */
+    justify-content: center;
 }
 
 .intro-wrapperr {
     max-width: 850px;
-    text-align: left;        /* tulisan tetap rata kiri */
+    text-align: left;
 }
-
-
-main {
-    padding: 0;
-    margin: 0;
-    background-color: #1a1a1a;
-}
-
-/* Section Tampilan Foto Utama */
 
 .featured-looks-section {
-    padding: 100px 0;
     background-color: black;
 }
 
@@ -277,49 +660,23 @@ main {
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
     align-items: start;
-}
-
-.look-item {
     text-align: center;
 }
 
 .look-item img {
     width: 100%;
-    height: auto;
     margin-bottom: 20px;
 }
 
 .look-item p {
     font-size: 0.9rem;
     color: #b0b0b0;
-    line-height: 1.7;
     max-width: 300px;
     margin: 0 auto;
 }
 
-.look-item .image-wrapper {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.look-item .badge {
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #e53935;
-    color: white;
-    padding: 8px 25px;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-
-/* ===== SECTION BIKERS STORY (SESUAI GAMBAR ACUAN) ===== */
-
 .bikers-story-section {
-    padding: 80px 0;
-    background-color: #383838; /* Background kembali gelap */
+    background-color: #383838;
 }
 
 .bikers-story-section h2 {
@@ -329,36 +686,46 @@ main {
     letter-spacing: 3px;
     margin-bottom: 50px;
     font-weight: 600;
-    color: #ffffff; /* Warna judul kembali putih */
 }
 
 .story-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
-    align-items: start; /* INI KUNCINYA: Meratakan item ke ATAS, bukan meregangkannya */
+    align-items: start;
 }
 
 .story-item {
-    /* KOSONGKAN: Tidak perlu background, flex, atau apapun. */
-    /* Biarkan transparan agar menyatu dengan section. */
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-/* Pembungkus gambar */
+.story-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.story-item .story-content h3 {
+    transition: color 0.3s ease;
+}
+
+.story-item:hover .story-content h3 {
+    color: #f39c12;
+}
+
 .story-image-wrapper {
     position: relative;
     margin-bottom: 15px;
-    height: 300px; /* <-- KITA TENTUKAN TINGGI YANG SAMA UNTUK SEMUA GAMBAR */
-    border-radius: 4px; /* Pindahkan lengkungan ke pembungkus */
-    overflow: hidden; /* Sembunyikan bagian gambar yang melebihi bingkai */
+    height: 300px;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-/* Gambar di dalam pembungkus */
 .story-image-wrapper img {
     width: 100%;
-    height: 100%; /* Buat gambar mengisi penuh tinggi & lebar bingkainya */
-    object-fit: cover; /* INI KUNCINYA: Mencegah gambar gepeng, gambar akan di-zoom & di-crop agar pas */
-    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
 .story-author {
@@ -373,7 +740,7 @@ main {
 }
 
 .story-content {
-    padding: 0 5px; /* Sedikit padding kiri-kanan untuk kerapian */
+    padding: 0 5px;
 }
 
 .story-content h3 {
@@ -381,283 +748,162 @@ main {
     margin-bottom: 10px;
     text-transform: uppercase;
     font-weight: 700;
-    color: #ffffff;
 }
 
 .story-content p {
     font-size: 0.9rem;
     color: #a0a0a0;
-    line-height: 1.6;
 }
 
-
-/* Media Queries untuk Responsive */
-@media (max-width: 992px) {
-    .story-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px 25px;
-    }
-}
-
-@media (max-width: 768px) {
-    .story-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-}
-
-/* collection.css - Style khusus untuk halaman koleksi */
-
-/* Section Galeri Produk */
-.product-gallery-section {
-    padding: 80px 0;
-    background-color: #1a1a1a; /* Warna latar abu-abu gelap */
-}
-
-/* Judul Section (contoh: "All Products") */
-.product-gallery-section .section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 50px;
-    text-transform: capitalize;
-    color: #ffffff;
-}
-
-/* Grid untuk produk */
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Membuat 3 kolom */
-    gap: 30px; /* Jarak antar produk */
-}
-
-/* Setiap item produk */
-.product-item {
-    text-align: left;
-}
-
-/* Kontainer gambar yang berwarna putih */
-.product-image-container {
-    background-color: #ffffff; /* Latar belakang putih untuk gambar */
-    padding: 20px;
-    margin-bottom: 15px; /* Jarak dari kotak putih ke link "Shop now" */
-}
-
-.product-image-container img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Memastikan gambar proporsional */
-}
-
-/* Link "Shop now" */
-.shop-now-link {
-    display: inline-block;
-    color: #c0c0c0;
-    text-decoration: underline;
-    font-size: 0.9rem;
-    transition: color 0.3s ease;
-}
-
-.shop-now-link:hover {
-    color: #ffffff;
-}
-
-
-/* Responsive untuk tablet dan mobile */
-@media (max-width: 992px) {
-    .product-grid {
-        grid-template-columns: repeat(2, 1fr); /* Jadi 2 kolom */
-    }
-}
-
-@media (max-width: 768px) {
-    .product-grid {
-        grid-template-columns: 1fr; /* Jadi 1 kolom */
-    }
-}
-
-/* about.css - VERSI FINAL SESUAI GAMBAR */
-
-/* Hero Section Halaman About */
-.about-hero {
-    height: 70vh;
-    background-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 100%), url('https://dioassets.blob.core.windows.net/dihongasset/About/awal.png');
+/* ============================================= */
+/* == HALAMAN CONTACT ========================== */
+/* ============================================= */
+.contact-hero {
+    height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/kontak.png');
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
-/* Penyesuaian agar "Our Story" lebih ke kiri seperti di gambar */
-.hero-text-container {
-    padding: 0 20px; /* Gunakan padding container yang sudah ada */
-}
-
-.about-hero h1 {
-    color: #ffffff;
-    font-size: 3.5rem;
-}
-
-/* Paragraf Pembuka */
-.about-intro {
-    padding: 80px 20px;
-    background-color: #121212;
-}
-
-.intro-text-wrapper {
-    max-width: 750px; /* Lebar maksimum untuk blok teks */
-    margin: 0 auto; /* Membuat blok teks berada di tengah */
-}
-
-.about-intro p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #c0c0c0;
-}
-
-/* Jarak antar paragraf pembuka */
-.about-intro p:first-of-type {
-    margin-bottom: 25px; 
-}
-
-/* Section Misi (Dua Kolom) */
-.about-mission {
-    padding: 100px 0;
-    background-color: #121212; /* Warna latar utama */
-}
-
-.mission-grid {
-    display: grid;
-    grid-template-columns: 4fr 5fr; /* Kolom gambar sedikit lebih kecil dari kolom teks */
-    gap: 70px; /* Jarak antara gambar dan teks */
-    align-items: center;
-}
-
-.mission-image img {
-    width: 100%;
-    border-radius: 4px; /* Sudut sedikit melengkung */
-}
-
-.mission-text h4 {
-    color: #a0a0a0;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-}
-
-.mission-text h2 {
-    color: #ffffff;
-    font-size: 2.2rem;
-    margin-bottom: 25px;
-    line-height: 1.3;
-}
-
-.mission-text p {
-    color: #b0b0b0;
-    line-height: 1.7;
-}
-
-/* Responsive untuk mobile */
-@media (max-width: 768px) {
-    .mission-grid {
-        grid-template-columns: 1fr; /* Jadi satu kolom */
-    }
-
-    .about-hero {
-        background-position: 70% center; /* Geser gambar agar subjek tetap terlihat di mobile */
-    }
-    
-    .about-hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .mission-text h2 {
-        font-size: 1.8rem;
-    }
-
-    .about-mission, .about-intro {
-        padding: 60px 0;
-    }
-}
-
-/* contact.css - VERSI FINAL DENGAN HERO SECTION */
-
-/* Style untuk Hero Section di Halaman Kontak */
-.contact-hero {
-    height: 60vh; /* Tinggi hero, bisa disesuaikan */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/About/aw.png');
-    background-size: cover;
-    background-position: center;
-}
-
-/* Memastikan teks di tengah hero */
 .contact-hero .hero-content {
-    width: 100%;
-    text-align: center;
-    padding-left: 0; /* Menimpa style padding dari .hero-content utama */
+    max-width: 100%;
+    padding-right: 60%;
+    padding-top: 25%;
 }
 
 .contact-hero .hero-content h1 {
     font-size: 3.5rem;
+    margin-top: 10px;
 }
 
-
-/* Section Teks Pembuka */
 .contact-intro {
     background-color: #383838;
-    padding: 80px 20px;
 }
 
 .intro-wrapper {
-    max-width: 850px; /* Lebar maksimum blok teks */
-    margin: 0 auto; /* Posisi di tengah */
+    max-width: 850px;
+    margin: 0 auto;
     text-align: center;
 }
 
 .intro-wrapper p {
-    color: white;
     font-size: 1.1rem;
-    line-height: 1.8;
 }
 
-/* Section Grid Alamat */
 .address-section {
-    padding: 80px 0;
     background-color: #121212;
 }
 
 .address-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-    gap: 30px; /* Jarak antar kotak */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
 }
 
 .address-card {
-    background-color: #d3d3d3; /* Warna abu-abu terang */
-    min-height: 300px; /* Tinggi minimal setiap kotak */
+    background-color: #d3d3d3;
+    min-height: 300px;
     padding: 20px;
-    
-    /* Trik untuk membuat teks di tengah secara vertikal & horizontal */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .address-card p {
-    color: #222222; /* Warna teks gelap */
+    color: #222222;
     text-align: center;
     font-size: 1.1rem;
-    line-height: 1.6;
     font-weight: 600;
 }
 
-/* Responsive untuk mobile */
-@media (max-width: 768px) {
-    .address-grid {
-        grid-template-columns: 1fr; /* Jadi 1 kolom */
+/* ============================================= */
+/* == MEDIA QUERIES (RESPONSIVE) =============== */
+/* ============================================= */
+@media (max-width: 992px) {
+    .collection-grid,
+    .categories-grid,
+    .product-grid,
+    .story-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .contact-hero h1 {
-        font-size: 2.5rem;
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    main {
+        padding-top: 80px;
+    }
+
+    section, .contact-introoo {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    h1, .hero-content h1, .about-hero h1, .collection-hero h1, .blog-hero h1, .contact-hero h1 {
+        font-size: 2.2rem;
+    }
+    h2, .mission-text h2 {
+        font-size: 1.8rem;
+    }
+    h3 {
+        font-size: 1.3rem;
+    }
+    p, .deskripsi, .story-content p, .about-intro p {
+        font-size: 0.95rem;
+    }
+
+    header,
+    header.scrolled {
+        padding: 15px 0;
+    }
+
+    .logo img,
+    header.scrolled .logo img {
+        width: 100px;
+    }
+
+    .nav-center, .social-icons {
+        display: none;
+    }
+
+    #hamburger-icon {
+        display: flex;
+    }
+
+    .hero, .about-hero, .collection-hero, .blog-hero, .contact-hero {
+        height: 60vh;
+        justify-content: center;
+        background-position: center;
+    }
+
+    .hero-content, .hero-text-container, .collection-hero .hero-content, .blog-hero .hero-content, .contact-hero .hero-content {
+        max-width: 90%;
+        padding: 0;
+        text-align: center;
+    }
+
+    .collection-grid,
+    .categories-grid,
+    .footer-container,
+    .product-grid,
+    .story-grid,
+    .address-grid,
+    .mission-grid,
+    .looks-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .animated-item.slide-from-left,
+    .animated-item.slide-from-right {
+        transform: translateY(50px);
     }
 }

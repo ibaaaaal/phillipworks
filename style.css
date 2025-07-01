@@ -235,7 +235,7 @@ footer { background-color: #2F2F2F; padding-top: 65px; border-top: 1px solid #22
 
 /* Mengganti gambar latar belakang */
 .blog-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('awal.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://dioassets.blob.core.windows.net/dihongasset/Blog/awal.png');
 }
 
 /* Mengganti font untuk judul h1 */
